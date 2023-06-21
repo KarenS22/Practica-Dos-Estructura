@@ -11,6 +11,8 @@ import java.util.Stack;
  * @author ACER
  */
 public class Pila <T> {
+    //creacion de una clase generica que se usara para guardar las ventas con 
+    //sus metodos
     private Stack<T> pila;
     private double size;
 

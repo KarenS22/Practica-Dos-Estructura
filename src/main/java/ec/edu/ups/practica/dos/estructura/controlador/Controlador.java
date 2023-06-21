@@ -52,7 +52,7 @@ public class Controlador {
                     inventario.listar();
                     break;
                 case 4:
-                    //vista.mostrarMensaje("---VENTA DE PRODUCTOS---");
+                    vista.mostrarMensaje("---VENTA DE PRODUCTOS---");
                     String nombreBuscar = vista.pedirNombre();
                     inventario.vender(nombreBuscar);
                     

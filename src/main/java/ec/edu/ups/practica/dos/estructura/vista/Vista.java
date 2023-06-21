@@ -11,6 +11,7 @@ import java.util.Scanner;
  * @author ACER
  */
 public class Vista {
+    //se usa el Scanner para que el usuario ingrese la informacion
 
     private Scanner scanner;
 
@@ -19,6 +20,7 @@ public class Vista {
     }
 
     public int mostrarMenuPrincipal() {
+        //menu
         System.out.println("===== MENU PRINCIPAL =====");
         System.out.println("1. Agregar producto");
         System.out.println("2. Buscar producto por codigo");
@@ -27,6 +29,7 @@ public class Vista {
         System.out.println("5. Lista de ventas");
         System.out.println("0. Salir");
         System.out.print("Ingrese una opción: ");
+        //ingreso de opcion
         int opcion = scanner.nextInt();
 //        scanner.nextLine();
         return opcion;

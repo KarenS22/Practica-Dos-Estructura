@@ -9,12 +9,14 @@ package ec.edu.ups.practica.dos.estructura.modelo;
  * @author ACER
  */
 public class Producto {
+    //atributos
     private String nombre;
     private String codigo;
     private double precio;
     private int cantidad;
     private Producto siguiente;
-
+    
+    //constructores
     public Producto() {
     }
 
@@ -25,7 +27,8 @@ public class Producto {
         this.cantidad = cantidad;
         this.siguiente = null;
     }
-
+    
+    //getters and setters
     public String getNombre() {
         return nombre;
     }
@@ -66,8 +69,6 @@ public class Producto {
         this.siguiente = siguiente;
     }
     
-    
-
     @Override
     public String toString() {
         return """

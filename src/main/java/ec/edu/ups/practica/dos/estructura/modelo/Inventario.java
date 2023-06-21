@@ -9,8 +9,12 @@ package ec.edu.ups.practica.dos.estructura.modelo;
  * @author ACER
  */
 public class Inventario {
+    //atributos
+    
     private Producto producto;
+    //se usara para ver el tamaño de la vista
     private double size;
+    //atributo de una clase creada llamada Pila
     private Pila<String> ventas;
 
     public Inventario() {
@@ -32,6 +36,7 @@ public class Inventario {
         return actual;
     }
     
+    //se crea un nuevo producto y se le aumenta el tamaño
     public void agregar(String nombre, String codigo, double precio, int cantidad){
         Producto nuevo = new Producto(nombre, codigo, precio, cantidad);
         if (producto == null){
@@ -42,7 +47,7 @@ public class Inventario {
         }
         size++;
     }
-    
+    // se busca un producto por codigo y retornando el mismo
     public Producto buscarPorCodigo(String codigo){
         Producto actual = producto;
         while(actual != null){
@@ -52,7 +57,7 @@ public class Inventario {
         }
         return null;
     }
-    
+    // se busca un producto por nombre 
     public Producto buscarPorNombre(String nombre){
         Producto actual = producto;
         while(actual != null){
@@ -63,7 +68,7 @@ public class Inventario {
         return null;
     }
   
-    
+    //se elimina, buscando primero un codigo de una persona
     public void eliminar(String codigo){
         if (producto == null){
             return;
@@ -81,6 +86,7 @@ public class Inventario {
         size--;
     }
     
+    //metodo para devolver todos los productos de la lista
     public void listar(){
         Producto actual = producto;
         while (actual != null){
@@ -89,10 +95,15 @@ public class Inventario {
         }
     }
     
+    //obtener el tamaño de la lista
     public double getSize() {
         return size;
     }
     
+    /*metodo para vender un producto 
+      primero se busca un producto por su nombre, luego se agrega el elemnto a una pila
+      para que se vea la venta realizada y se modifica la cantidad de los productos
+    */
     public void vender(String nombre){
         Producto p = this.buscarPorNombre(nombre);
         String ventaProducto ="Venta:{ Codigo: " + p.getCodigo() + " Nombre: "+p.getNombre() + " Precio: " + p.getPrecio() + "}";
@@ -101,6 +112,7 @@ public class Inventario {
         p.setCantidad(cantidad-1);
     }
     
+    //listar las listas de ventas
     public String verVentas(){
         return ventas.toString();
     }
