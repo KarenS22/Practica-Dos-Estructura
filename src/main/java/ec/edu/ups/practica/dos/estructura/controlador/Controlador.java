@@ -30,6 +30,7 @@ public class Controlador {
             // Instancia de [dato] segun la opcion escogida
             switch (opcionPrincipal) {
                 case 1:
+                    vista.mostrarMensaje("----INGRESO DE UN NUEVO PRODUCTO----");
                     String nombre = vista.pedirNombre();
                     String codigo = vista.pedirCodigo();
                     double precio = vista.pedirPrecio();
@@ -37,21 +38,30 @@ public class Controlador {
                     inventario.agregar(nombre, codigo, precio, cantidad);
                     break;
                 case 2:
+                    vista.mostrarMensaje("---BUSQUEDA DE PRODUCTO POR CODIGO--");
                     String codigoBuscar = vista.pedirCodigo();
                     Producto pB = inventario.buscarPorCodigo(codigoBuscar);
-                    vista.mostrarMensaje(pB.toString());
+                    if (pB != null){
+                        vista.mostrarMensaje(pB.toString());
+                    } else{
+                        vista.mostrarMensaje("El producto con el codigo " + codigoBuscar + "no ha sido encontrado");
+                    }
                     break;
                 case 3: 
+                    vista.mostrarMensaje("-----INVENTARIO-----");
                     inventario.listar();
                     break;
                 case 4:
-                    String codigoB = vista.pedirCodigo();
-                    inventario.vender(codigoB);
+                    //vista.mostrarMensaje("---VENTA DE PRODUCTOS---");
+                    String nombreBuscar = vista.pedirNombre();
+                    inventario.vender(nombreBuscar);
                     
                     break;
                 case 5:
+                    vista.mostrarMensaje("---LISTA DE VENTAS---");
                     String ventas = inventario.verVentas();
                     vista.mostrarMensaje(ventas);
+                    
                 case 0:
                     vista.mostrarMensaje("Saliendo del programa...");
                     break;

@@ -21,7 +21,7 @@ public class Vista {
     public int mostrarMenuPrincipal() {
         System.out.println("===== MENU PRINCIPAL =====");
         System.out.println("1. Agregar producto");
-        System.out.println("2. Buscar producto por nombre");
+        System.out.println("2. Buscar producto por codigo");
         System.out.println("3. Inventario de productos");
         System.out.println("4. Realizar venta");
         System.out.println("5. Lista de ventas");
@@ -43,6 +43,7 @@ public class Vista {
     }
 
     public String pedirCodigo() {
+        //de ser posible se debe evitar agregar 0 al inicio
         System.out.print("Ingrese el codigo del producto: ");
         return scanner.next();
     }

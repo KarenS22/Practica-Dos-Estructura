@@ -53,6 +53,17 @@ public class Inventario {
         return null;
     }
     
+    public Producto buscarPorNombre(String nombre){
+        Producto actual = producto;
+        while(actual != null){
+            if (actual.getNombre().equals(nombre)){
+                return actual;
+            }
+        }
+        return null;
+    }
+  
+    
     public void eliminar(String codigo){
         if (producto == null){
             return;
@@ -82,8 +93,8 @@ public class Inventario {
         return size;
     }
     
-    public void vender(String codigo){
-        Producto p = this.buscarPorCodigo(codigo);
+    public void vender(String nombre){
+        Producto p = this.buscarPorNombre(nombre);
         String ventaProducto ="Venta:{ Codigo: " + p.getCodigo() + " Nombre: "+p.getNombre() + " Precio: " + p.getPrecio() + "}";
         ventas.agregar(ventaProducto);
         int cantidad = p.getCantidad();
